@@ -14,7 +14,7 @@ namespace DatumNewsApp
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("NavigationPage/MainPage?title=Hello%20from%20Xamarin.Forms");
+            NavigationService.NavigateAsync("NavigationPage/MainPage?title=Hello Datum News App");
         }
 
         protected override void RegisterTypes()

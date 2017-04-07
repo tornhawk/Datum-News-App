@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using DatumNewsApp.Controls;
+using Xamarin.Forms;
 
 namespace DatumNewsApp.Views
 {
@@ -7,6 +8,8 @@ namespace DatumNewsApp.Views
         public MainPage()
         {
             InitializeComponent();
+
+            
         }
     }
 }

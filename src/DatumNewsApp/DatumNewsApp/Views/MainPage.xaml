@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DatumNewsApp.Views.MainPage"
              Title="MainPage">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
+  <StackLayout x:Name="slContent" HorizontalOptions="Center" VerticalOptions="Center">
+    
   </StackLayout>
 </ContentPage>
