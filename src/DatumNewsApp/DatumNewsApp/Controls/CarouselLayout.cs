@@ -10,26 +10,39 @@ namespace DatumNewsApp.Controls
 {
     public class CarouselLayout : ScrollView
     {
-        private readonly StackLayout _stackLayout;
-        private int _selectedIndex;
+
+        public enum IndicatorStyleEnum
+        {
+            None,
+            Dots,
+            Tabs
+        }
+
+
+        readonly StackLayout _stack;
+
+        int _selectedIndex;
+
         public CarouselLayout()
         {
             Orientation = ScrollOrientation.Horizontal;
 
-            _stackLayout = new StackLayout
+            _stack = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
                 Spacing = 0
             };
 
-            Content = _stackLayout;
+            Content = _stack;
         }
+
+        public IndicatorStyleEnum IndicatorStyle { get; set; }
 
         public IList<View> Children
         {
             get
             {
-                return _stackLayout.Children;
+                return _stack.Children;
             }
         }
 
@@ -111,14 +124,14 @@ namespace DatumNewsApp.Controls
 
         void ItemsSourceChanged()
         {
-            _stackLayout.Children.Clear();
+            _stack.Children.Clear();
             foreach (var item in ItemsSource)
             {
                 var view = (View)ItemTemplate.CreateContent();
                 var bindableObject = view as BindableObject;
                 if (bindableObject != null)
                     bindableObject.BindingContext = item;
-                _stackLayout.Children.Add(view);
+                _stack.Children.Add(view);
             }
 
             if (_selectedIndex >= 0) SelectedIndex = _selectedIndex;

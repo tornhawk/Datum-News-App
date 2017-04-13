@@ -3,6 +3,7 @@ using Prism.Autofac;
 using Prism.Autofac.Forms;
 using DatumNewsApp.Views;
 using Xamarin.Forms;
+using DatumNewsApp.Pages;
 
 namespace DatumNewsApp
 {
@@ -14,13 +15,22 @@ namespace DatumNewsApp
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("NavigationPage/MainPage?title=Hello Datum News App");
+            //NavigationService.NavigateAsync("NavigationPage/SwitcherPage");
+
+            var navPage = new NavigationPage(new SwitcherPage())
+            {
+                Icon = null
+            };
+            MainPage = navPage;
         }
 
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<SwitcherPage>();
+
+            
         }
     }
 }

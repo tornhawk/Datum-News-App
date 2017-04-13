@@ -1,14 +1,17 @@
-﻿using Prism.Commands;
+﻿using DatumNewsApp.Controls;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace DatumNewsApp.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
+
         private string _title;
         public string Title
         {
@@ -16,7 +19,7 @@ namespace DatumNewsApp.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        public MainPageViewModel()
+        public MainPageViewModel(CarouselLayout.IndicatorStyleEnum indicatorStyle)
         {
 
         }
